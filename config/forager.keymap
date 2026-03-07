@@ -197,13 +197,6 @@
         };
     };
 
-// Add the aliases block right here, at the top of the root node
-    aliases {
-        led-red = &led_red;
-        led-green = &led_green;
-        led-blue = &led_blue;
-    };
-
     keymap {
         compatible = "zmk,keymap";
 
