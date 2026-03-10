@@ -116,6 +116,11 @@
             bindings = <&kp SINGLE_QUOTE>;
             key-positions = <26 27>;
         };
+
+        enter {
+            bindings = <&kp ENTER>;
+            key-positions = <29 28>;
+        };
     };
 };
 
@@ -220,7 +225,7 @@
 
         adj {
             bindings = <
-&bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_CLR_ALL  &kp C_SLEEP  &trans  &trans  &kp C_BRI_DN  &kp C_BRI_UP  &studio_unlock  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp C_VOL_DN  &kp C_VOL_UP  &bootloader  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &bootloader  &trans  &trans  &trans  &trans
+&kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_CLR_ALL  &kp C_VOL_UP  &trans  &trans  &kp F11  &kp F12  &bootloader  &studio_unlock  &trans  &trans  &kp C_SLEEP  &kp C_VOL_DN  &trans  &trans  &trans  &bootloader  &trans  &trans  &trans  &trans
             >;
         };
     };
