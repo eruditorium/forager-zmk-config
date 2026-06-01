@@ -98,8 +98,8 @@
 
         nav {
             bindings = <
-            &trans          &trans          &trans          &kp PRINTSCREEN &kp INS                                         &kp PAGE_UP     &kp LC(PG_UP)   &kp UP          &kp LC(PG_DN)   &kp DELETE
-            &trans          &kp LCTRL       &kp LALT        &kp LGUI        &trans                                          &kp PAGE_DOWN   &kp LEFT        &kp DOWN        &kp RIGHT       &kp SLASH
+            &trans          &sel_word       &sel_line       &kp PRINTSCREEN &kp INS                                         &kp PAGE_UP     &kp LC(PG_UP)   &kp UP          &kp LC(PG_DN)   &kp DELETE
+            &trans          &kp LCTRL       &kp LALT        &kp LGUI        &mac_gitcommit                                  &kp PAGE_DOWN   &kp LEFT        &kp DOWN        &kp RIGHT       &kp SLASH
             &trans          &trans          &trans          &trans          &trans                                          &trans          &kp HOME        &kp END         &kp LC(SPACE)   &kp LC(SPACE)
                                                                             &mo SYM         &kp LSHFT       &trans          &trans
             >;
@@ -162,6 +162,15 @@
 / {
     macros {
 
+        mac_gitcommit: mac_gitcommit {
+            label = "GIT_COMMIT";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp G &kp I &kp T &kp SPACE &kp C &kp O &kp M &kp M &kp I &kp T &kp SPACE &kp MINUS &kp M &kp SPACE &kp DQT &kp DQT &kp LEFT>;
+        };
+
         t_bkt: triple_backtick {
             label = "TRIPLE_BACKTICK";
             compatible = "zmk,behavior-macro";
@@ -169,6 +178,29 @@
             wait-ms = <10>;
             tap-ms = <10>;
             bindings = <&kp GRAVE &kp GRAVE &kp GRAVE>;
+        };
+
+        // Wählt die gesamte aktuelle Zeile aus (Windows/Linux)
+        // Logik: Springt zum Anfang der Zeile (HOME) und markiert bis zum Ende (SHIFT + END)
+        sel_line: select_line {
+            label = "SELECT_LINE";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp HOME>, <&kp LS(END)>;
+        };
+
+        // Wählt das aktuelle Wort aus (Windows/Linux)
+        // Logik: Springt zum Anfang des nächsten Wortes (CTRL+RIGHT)
+        // und markiert zurück zum Anfang des aktuellen Wortes (CTRL+SHIFT+LEFT)
+        sel_word: select_word {
+            label = "SELECT_WORD";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp LC(RIGHT)>, <&kp LC(LS(LEFT))>;
         };
 
         qusp: qusp {
@@ -180,6 +212,7 @@
                 , <&macro_tap &kp SPACE>
                 ;
         };
+
         sqsp: sqsp {
             label = "single quote space";
             compatible = "zmk,behavior-macro";
