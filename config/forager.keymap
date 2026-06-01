@@ -366,6 +366,11 @@
 
         equal {
             bindings = <&kp EQUAL>;
+            key-positions = <18 19>;
+        };
+
+        enter {
+            bindings = <&kp ENTER>;
             key-positions = <28 29>;
         };
 
@@ -373,16 +378,6 @@
             bindings = <&kp LC(BACKSPACE)>;
             key-positions = <8 9>;
         };
-
-        /*selectline {
-            bindings = <&selectline>;
-            key-positions = <2 3>;
-        };*/
-
-        /*selectword {
-            bindings = <&selectword>;
-            key-positions = <6 7>;
-        };*/
 
         capsword {
             bindings = <&caps_word>;
@@ -399,14 +394,6 @@
             key-positions = <10 11>;
         };
 
-        Del {
-            bindings = <&kp DEL>;
-            key-positions = <18 19>;
-        };
 
-        /*BkSpc {
-            bindings = <&kp BSPC>;
-            key-positions = <7 8>;
-        };*/
     };
 };
